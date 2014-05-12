@@ -167,7 +167,7 @@ void DialogSettings::on_pushButton_Logo_clicked() {
 	qreal ratio = qreal(logo.size().width()) / qreal(logo.size().height());
 	qDebug() << "height: " << logo.size().height() << " width: " << logo.size().width();
 	qDebug() << "ratio image: " << ratio;
-	if(logo.size().height() > 128) logo = logo.scaled(QSize(logo.width(),128));
+    if(logo.size().height() > 128) logo = logo.scaled(QSize(logo.width(),256));
 	if(logo.size().width() > 128){
 		logo = logo.scaled(QSize(logo.height() * ratio,logo.height()));
 		// Bornage max
