@@ -2,9 +2,8 @@
 
 - Gestion TVA
 
-- Import des produits avec un fichier cvs
-
-- Export des produits avec un fichier cvs
+- Import des produits avec un fichier csv
+- Export des produits avec un fichier csv
 
 - Sous ensemble de produit
 

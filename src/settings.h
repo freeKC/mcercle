@@ -10,14 +10,10 @@ class Settings : public QObject
 {
 	Q_OBJECT
 
-private:
-	QString m_fileName;
-	QSettings *m_settings;
-	QString path_DataLocation;
-
 public:
 	explicit Settings(QObject *parent = 0);
 
+    static QString getSettingsFile();
 	void setDatabase_bdd(const QString& bdd);
 	void setDatabase_hostName(const QString& hostName);
 	void setDatabase_port(const int& port);
@@ -47,8 +43,6 @@ public:
 
 	bool settingIsOk();
 	void setSettingState(bool state);
-
-	QString getDataLocation(){return path_DataLocation;}
 
 signals:
 

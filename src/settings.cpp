@@ -20,193 +20,195 @@
 #include "settings.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-	#include <QDesktopServices>
+#include <QDesktopServices>
 #else
-	#include <QStandardPaths>
+#include <QStandardPaths>
 #endif
 
 #include <QDate>
 #include <QDir>
 #include <QFile>
+#include <QDebug>
 #include <QMessageBox>
 
 Settings::Settings(QObject *parent) :
-	QObject(parent)
+    QObject(parent)
 {
-	QString path;
-	m_fileName = "/.mcercle";
-	
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-	path_DataLocation = QDesktopServices::storageLocation ( QDesktopServices::DataLocation );
-	path = path_DataLocation+"/mcercle"+m_fileName;
-	// Changement de repertoire
-	if(( QFile::exists ( path_DataLocation+"/.mcercle" ) )||
-		( QFile::exists ( path_DataLocation+"/.mcercle" ))){
-		if( QDir().mkdir(path_DataLocation+"/mcercle/") ){
-		// Si le fichier existe deja on le copy
-			if( QFile::copy(path_DataLocation+"/.mcercle", path) ) {
-				QFile::remove(path_DataLocation+"/.mcercle");
-			}
-			else{
-				QMessageBox::critical(0, tr("Erreur"),
-									tr("Transfert de fichier impossible!\n\n")+
-										"Source: "+path_DataLocation+"/.mcercle\n"+
-										"Destination: "+path+"\n");
-			}
-		}
-	}
-#else
-	// Qt5 gere un dosssier du nom de lapplication
-	path_DataLocation = QStandardPaths::writableLocation ( QStandardPaths::DataLocation );
-#endif
-	m_settings = new QSettings(path,QSettings::IniFormat,this);
 }
 
+QString Settings::getSettingsFile(){
+    qDebug()<<"Settings file location"<<QFileInfo(QStandardPaths::writableLocation ( QStandardPaths::ConfigLocation),"settings").absoluteFilePath();
+    return QFileInfo(QStandardPaths::writableLocation ( QStandardPaths::ConfigLocation),"settings").absoluteFilePath();
+}
 
 /**
-	Recuperation des parametres de connexion pour la bdd
+    Recuperation des parametres de connexion pour la bdd
   */
 QString Settings::getDatabase_bdd(){
-	m_settings->beginGroup("connection");
-	QString val = m_settings->value("bdd").toString();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    QString val = settings.value("bdd").toString();
+    settings.endGroup();
+    return val;
 }
 
 QString Settings::getDatabase_hostName(){
-	m_settings->beginGroup("connection");
-	QString val = m_settings->value("hostName").toString();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    QString val = settings.value("hostName").toString();
+    settings.endGroup();
+    return val;
 }
 
 int Settings::getDatabase_port(){
-	m_settings->beginGroup("connection");
-	int val = m_settings->value("port").toInt();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    int val = settings.value("port").toInt();
+    settings.endGroup();
+    return val;
 }
 
 QString Settings::getDatabase_databaseName(){
-	m_settings->beginGroup("connection");
-	QString val = m_settings->value("databaseName").toString();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    QString val = settings.value("databaseName").toString();
+    settings.endGroup();
+    return val;
 }
 
 QString Settings::getDatabase_userName(){
-	m_settings->beginGroup("connection");
-	QString val = m_settings->value("userName").toString();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    QString val = settings.value("userName").toString();
+    settings.endGroup();
+    return val;
 }
 
 QString Settings::getDatabase_userPassword(){
-	m_settings->beginGroup("connection");
-	QString val = m_settings->value("userPassword").toString();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    QString val = settings.value("userPassword").toString();
+    settings.endGroup();
+    return val;
 }
 
 /**
  * @brief Settings::getPrintFont
- * @return 
+ * @return
  */
 QFont Settings::getPrintFont(){
-	m_settings->beginGroup("print");
-	QFont val( m_settings->value("font").toString() );
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("print");
+    QFont val( settings.value("font").toString() );
+    settings.endGroup();
+    return val;
 }
 
 
 /**
-	Sauvegarde dans le fichier les donnees relatif a la base de donnees
+    Sauvegarde dans le fichier les donnees relatif a la base de donnees
   */
 void Settings::setDatabase_bdd(const QString& bdd) {
-	m_settings->beginGroup("connection");
-	m_settings->setValue("bdd", bdd);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("bdd", bdd);
+    settings.endGroup();
 }
 
 void Settings::setDatabase_hostName(const QString& hostName) {
-	m_settings->beginGroup("connection");
-	m_settings->setValue("hostName", hostName);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("hostName", hostName);
+    settings.endGroup();
 }
 
 void Settings::setDatabase_port(const int& port) {
-	m_settings->beginGroup("connection");
-	m_settings->setValue("port",QString::number(port));
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("port",QString::number(port));
+    settings.endGroup();
 }
 
 void Settings::setDatabase_databaseName(const QString& databaseName) {
-	m_settings->beginGroup("connection");
-	m_settings->setValue("databaseName", databaseName);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("databaseName", databaseName);
+    settings.endGroup();
 }
 
 void Settings::setDatabase_userName(const QString& userName){
-	m_settings->beginGroup("connection");
-	m_settings->setValue("userName", userName);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("userName", userName);
+    settings.endGroup();
 }
 
 void Settings::setDatabase_userPassword(const QString& userPassword) {
-	m_settings->beginGroup("connection");
-	m_settings->setValue("userPassword", userPassword);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("userPassword", userPassword);
+    settings.endGroup();
 }
 
 /**
-	Applique les valeurs par defaut de la bdd
+    Applique les valeurs par defaut de la bdd
   */
 void Settings::setDatabase_default() {
-	m_settings->beginGroup("connection");
-	m_settings->setValue("bdd", "SQLITE");
-	m_settings->setValue("hostName", "localhost");
-	m_settings->setValue("databaseName", path_DataLocation + "/mcercle.db");
-	m_settings->endGroup();
+
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("connection");
+    settings.setValue("bdd", "SQLITE");
+    settings.setValue("hostName", "localhost");
+
+    qDebug()<<"Bdd location"<<QFileInfo(QStandardPaths::writableLocation ( QStandardPaths::DataLocation),"mcercle.db").absoluteFilePath();
+
+    settings.setValue("databaseName", QFileInfo(QStandardPaths::writableLocation ( QStandardPaths::DataLocation),"mcercle.db").absoluteFilePath() );
+    settings.endGroup();
+
+    qDebug()<<"Set to settings "<<settings.fileName();
 }
 
 
 /**
  * @brief Settings::settingIsOk
- * @return 
+ * @return
  */
 bool Settings::settingIsOk() {
-	m_settings->beginGroup("main");
-	bool val = false;
-	val = m_settings->value("settingState").toBool();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("main");
+    bool val = false;
+    val = settings.value("settingState").toBool();
+    settings.endGroup();
+    return val;
 }
 
 void Settings::setSettingState(bool state) {
-	m_settings->beginGroup("main");
-	m_settings->setValue("settingState", state);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("main");
+    settings.setValue("settingState", state);
+    settings.endGroup();
 }
 
 /**
-	Position des listebox pour les recherches
+    Position des listebox pour les recherches
   */
 void Settings::setPositionListSearchProduct(int pos) {
-	m_settings->beginGroup("list");
-	m_settings->setValue("searchProduct", pos);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("list");
+    settings.setValue("searchProduct", pos);
+    settings.endGroup();
 }
 
 /**
  * @brief Settings::getPositionListSearchProduct
- * @return 
+ * @return
  */
 int Settings::getPositionListSearchProduct(){
-	m_settings->beginGroup("list");
-	int val = m_settings->value("searchProduct").toInt();
-	m_settings->endGroup();
-	return val;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("list");
+    int val = settings.value("searchProduct").toInt();
+    settings.endGroup();
+    return val;
 }
 
 /**
@@ -214,9 +216,10 @@ int Settings::getPositionListSearchProduct(){
  * @param printFont
  */
 void Settings::setPrintFont(const QString& printFont){
-	m_settings->beginGroup("print");
-	m_settings->setValue("font", printFont);
-	m_settings->endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("print");
+    settings.setValue("font", printFont);
+    settings.endGroup();
 }
 
 /**
@@ -224,19 +227,21 @@ void Settings::setPrintFont(const QString& printFont){
  * @param date
  */
 void Settings::setDatebddSave(const QDate &date) {
-	m_settings -> beginGroup("date");
-	m_settings -> setValue("bddSave", date.toString(tr("dd-MM-yyyy")) );
-	m_settings -> endGroup();
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("date");
+    settings.setValue("bddSave", date.toString(tr("dd-MM-yyyy")) );
+    settings.endGroup();
 }
 
 /**
  * @brief Settings::getDatebddSave
- * @return 
+ * @return
  */
 QDate Settings::getDatebddSave(){
-	m_settings->beginGroup("date");
-	QDate date;
-	date = QDate::fromString( m_settings->value("bddSave").toString(), tr("dd-MM-yyyy") );
-	m_settings->endGroup();
-	return date;
+    QSettings settings(getSettingsFile(),QSettings::IniFormat);
+    settings.beginGroup("date");
+    QDate date;
+    date = QDate::fromString( settings.value("bddSave").toString(), tr("dd-MM-yyyy") );
+    settings.endGroup();
+    return date;
 }

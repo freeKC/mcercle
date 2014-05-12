@@ -392,6 +392,7 @@ void DialogProduct::on_pushButton_image_clicked(){
 #else
 	QString pathPictures = QStandardPaths::writableLocation( QStandardPaths::PicturesLocation );
 #endif
+
     QString fileName = QFileDialog::getOpenFileName(0, tr("Sélectionner une image..."), pathPictures, tr("Image Files (*.png *.jpg *.bmp)"));
 
 	if(fileName.isEmpty())return;

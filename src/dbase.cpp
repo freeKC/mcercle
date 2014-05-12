@@ -38,7 +38,7 @@
  * @param parent
  */
 database::database(QLocale &lang, QWidget *parent): m_parent(parent) {
-	m_name = "mcercle.db";
+    m_name = QFileInfo(QStandardPaths::writableLocation ( QStandardPaths::DataLocation),"mcercle.db").absoluteFilePath();
 	m_port = 3306;
 	m_hostName = "localhost";
 	m_login = "root";
@@ -50,8 +50,8 @@ database::database(QLocale &lang, QWidget *parent): m_parent(parent) {
 }
 
 database::~database(){
-	if(m_customer) delete m_customer;
-	if(m_product) delete m_product;
+    if(m_customer) m_customer->deleteLater();
+    if(m_product) m_product->deleteLater();
 }
 
 
@@ -74,7 +74,7 @@ char database::connect(){
 	db.setPassword( m_password );
 
 	if (!db.open()) {
-		QMessageBox mBox(QMessageBox::Critical, tr("Erreur"), tr("<b>La connexion avec la base de donn&#233;es n&#146;a pas pu &#234;tre &#233;tablie!</b>"),QMessageBox::Ok);
+        QMessageBox mBox(QMessageBox::Critical, tr("Erreur"), tr("<b>La connexion avec la base de donnÃ©es n'a pas pu Ãªtre Ã©tablie!</b>"),QMessageBox::Ok);
 		mBox.setDetailedText ( db.lastError().text() );
 		mBox.exec();
 		m_connected = false;
@@ -87,8 +87,8 @@ char database::connect(){
 	if((!tList.contains("TAB_INFORMATIONS"))||(tList.count()< 14)){
 		 // Demande si on creer une nouvelle base de donnees
 		QString mess;
-		if(db.driverName() == "QSQLITE")mess = QLatin1String("Voulez-vous créer une nouvelle base de données ?\n\n")+ db.databaseName();
-		else mess = QLatin1String("Voulez-vous créer de nouvelles tables dans la base de données ?\n\n") + db.databaseName();
+        if(db.driverName() == "QSQLITE")mess = QLatin1String("Voulez-vous crÃ©er une nouvelle base de donnÃ©es ?\n\n")+ db.databaseName();
+        else mess = QLatin1String("Voulez-vous crÃ©er de nouvelles tables dans la base de donnÃ©es ?\n\n") + db.databaseName();
 		QMessageBox mBox(QMessageBox::Question, tr("Question"), mess ,QMessageBox::Yes | QMessageBox::No);
 		mBox.setDefaultButton(QMessageBox::No);
 		int ret = mBox.exec();
@@ -129,9 +129,9 @@ char database::connect(){
 	//Test de la version de la base de donnees... !!
 	if(m_databaseVersion > MCERCLE::Dbase_support){
 		QString mess = tr("Version de mcercle: ") + MCERCLE::Version;
-		mess += tr("\nVersion de la base de données: ") + QString::number(m_databaseVersion);
-		mess += tr("\n\nVersions des bases de données compatibles: <= ") + QString::number(MCERCLE::Dbase_support);
-		QMessageBox mBox(QMessageBox::Warning, tr("Attention"), tr("mcercle ne support pas cette version de base de données...\nMerci de faire évoluer mcercle."),QMessageBox::Ok);
+		mess += tr("\nVersion de la base de donnï¿½es: ") + QString::number(m_databaseVersion);
+		mess += tr("\n\nVersions des bases de donnï¿½es compatibles: <= ") + QString::number(MCERCLE::Dbase_support);
+		QMessageBox mBox(QMessageBox::Warning, tr("Attention"), tr("mcercle ne support pas cette version de base de donnï¿½es...\nMerci de faire ï¿½voluer mcercle."),QMessageBox::Ok);
 		mBox.setDetailedText ( mess );
 		mBox.exec();
 		this->close();
@@ -144,7 +144,7 @@ char database::connect(){
 		int ret = QMessageBox::warning(
 								this->m_parent,
 								tr("Attention"),
-								tr("Cette version de mcercle doit mettre à jour la base de donnée pour fonctionner.\n\nVoulez-vous mettre à jour la base de donnée"),
+								tr("Cette version de mcercle doit mettre ï¿½ jour la base de donnï¿½e pour fonctionner.\n\nVoulez-vous mettre ï¿½ jour la base de donnï¿½e"),
 								QMessageBox::Yes, QMessageBox::No | QMessageBox::Default
 								);
 	
@@ -170,11 +170,11 @@ char database::connect(){
 
 			QMessageBox mBox(QMessageBox::Information, tr("Information"), mess, QMessageBox::Ok);
 			if(upgradeOk){
-				mess += tr("La mise à jour de la base de données a réussi !\n");
+				mess += tr("La mise ï¿½ jour de la base de donnï¿½es a rï¿½ussi !\n");
 				mBox.setIcon( QMessageBox::Information );
 			}
 			else{
-				mess += tr("La mise à jour contient des erreurs :-(\nAfficher les détails pour voir ce qui ne va pas.");
+				mess += tr("La mise ï¿½ jour contient des erreurs :-(\nAfficher les dï¿½tails pour voir ce qui ne va pas.");
 				mBox.setIcon( QMessageBox::Critical );
 			}
 			mBox.setText( mess );
@@ -1065,7 +1065,7 @@ bool database::upgradeToV2(QString *log) {
 	QString req;
 	bool done=true;
 	QSqlQuery query;
-	*log = "Mise a jour de la base de données en version 2:";
+	*log = "Mise a jour de la base de donnï¿½es en version 2:";
 
 	req =	"ALTER TABLE TAB_PROPOSALS_DETAILS ADD ITEM_ORDER INTEGER;";
 	*log += "\n\n"+ req;
@@ -1107,7 +1107,7 @@ bool database::upgradeToV3(QString *log) {
 	QString req;
 	bool done=true;
 	QSqlQuery query;
-	*log = "Mise a jour de la base de données en version 3:";
+	*log = "Mise a jour de la base de donnï¿½es en version 3:";
 	
 	req =	"ALTER TABLE TAB_INVOICES ADD PAYMENTDATE;";
 	*log += "\n\n"+ req;
@@ -1160,7 +1160,7 @@ bool database::upgradeToV4(QString *log) {
 	QString req;
 	bool done=true;
 	QSqlQuery query;
-	*log = "Mise a jour de la base de données en version 4:";
+	*log = "Mise a jour de la base de donnï¿½es en version 4:";
 	
 	// ajout dune colonne
 	req =	"ALTER TABLE TAB_INFORMATIONS ADD NUM_TAX VARCHAR(64);";
@@ -1372,7 +1372,7 @@ bool database::upgradeToV5(QString *log) {
     QString req;
     bool done=true;
     QSqlQuery query;
-    *log = "Mise a jour de la base de données en version 5:";
+    *log = "Mise a jour de la base de donnï¿½es en version 5:";
 
     // Modification du type d item
     req =	"UPDATE TAB_INVOICES_DETAILS SET TYPE=1 WHERE ID_PRODUCT>0;";
