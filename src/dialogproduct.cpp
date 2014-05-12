@@ -392,7 +392,7 @@ void DialogProduct::on_pushButton_image_clicked(){
 #else
 	QString pathPictures = QStandardPaths::writableLocation( QStandardPaths::PicturesLocation );
 #endif
-	QString fileName = QFileDialog::getOpenFileName(0, tr("Selectionner une image..."), pathPictures.toStdString().c_str(), tr("Image Files (*.png *.jpg *.bmp)"));
+    QString fileName = QFileDialog::getOpenFileName(0, tr("Sélectionner une image..."), pathPictures, tr("Image Files (*.png *.jpg *.bmp)"));
 
 	if(fileName.isEmpty())return;
 
@@ -403,8 +403,9 @@ void DialogProduct::on_pushButton_image_clicked(){
 		QMessageBox::critical(this, tr("Erreur"), tr("Impossible de charger l'image..."));
 		return;
 	}
-	if(logo.size().height() > 128) logo = logo.scaled(QSize(logo.width(),128));
-	if(logo.size().width() > 128)  logo = logo.scaled(QSize(128,logo.height()));
+
+    const QSize iconOptimumSize(256, 256);
+    logo = QPixmap::fromImage(logo).scaled(iconOptimumSize, Qt::KeepAspectRatio, Qt::SmoothTransformation).toImage();
 
 	ui->label_image->setPixmap(QPixmap::fromImage(logo));
 }

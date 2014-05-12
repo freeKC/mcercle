@@ -78,8 +78,8 @@ void DialogPrintChoice::on_buttonBox_accepted() {
  */
 void DialogPrintChoice::on_toolButton_path_clicked() {
 	
-	QString filename = QFileDialog::getSaveFileName(this, "Emplacement du fichier", mpathFile.toStdString().c_str(), "*.pdf");
-	if( !filename.isEmpty() ) {
+    QString filename = QFileDialog::getSaveFileName(this, tr("Emplacement du fichier"), mpathFile, tr("Fichiers PDF (*.pdf)"));
+    if( !filename.isEmpty() ) {
 		QFileInfo file( filename );
 		mpath = file.dir().absolutePath()+ '/';
 		ui -> lineEdit_path -> setText(filename);
