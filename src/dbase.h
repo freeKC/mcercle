@@ -122,6 +122,9 @@ public:
 	bool getBank(Bank &b);
 	bool getIsTax(){return m_isTax;}
 
+    //export
+    void exportData(QString query, QString typeOfExport);
+
 
 	enum{DB_CON_OK, DB_CONNECT, DB_CREATE, DB_CON_ERR, DB_NOTEXIST_ERR};
 

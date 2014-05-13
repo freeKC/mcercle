@@ -245,3 +245,5 @@ QDate Settings::getDatebddSave(){
     settings.endGroup();
     return date;
 }
+
+

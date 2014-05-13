@@ -42,7 +42,7 @@
      <x>0</x>
      <y>0</y>
      <width>703</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -78,9 +78,19 @@
     <addaction name="separator"/>
     <addaction name="actionConfiguration"/>
    </widget>
+   <widget class="QMenu" name="menuExportation">
+    <property name="title">
+     <string>Exportation</string>
+    </property>
+    <addaction name="actionExportProduits"/>
+    <addaction name="actionServices"/>
+    <addaction name="actionClientsEx"/>
+    <addaction name="actionFournisseurs"/>
+   </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuAffichage"/>
    <addaction name="menuOutils"/>
+   <addaction name="menuExportation"/>
    <addaction name="menuAide"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -284,6 +294,55 @@
   <action name="actionOuvrir_BddDir">
    <property name="text">
     <string>Ouvrir le dossier où se trouve la base de données</string>
+   </property>
+  </action>
+  <action name="actionExportation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exportation</string>
+   </property>
+  </action>
+  <action name="actionExportProduits">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/app/products</normaloff>:/app/products</iconset>
+   </property>
+   <property name="text">
+    <string>Produits</string>
+   </property>
+  </action>
+  <action name="actionFacture">
+   <property name="text">
+    <string>Factures</string>
+   </property>
+  </action>
+  <action name="actionClientsEx">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/app/customers</normaloff>:/app/customers</iconset>
+   </property>
+   <property name="text">
+    <string>Clients</string>
+   </property>
+  </action>
+  <action name="actionServices">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/app/services</normaloff>:/app/services</iconset>
+   </property>
+   <property name="text">
+    <string>Services</string>
+   </property>
+  </action>
+  <action name="actionFournisseurs">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/app/providers</normaloff>:/app/providers</iconset>
+   </property>
+   <property name="text">
+    <string>Fournisseurs</string>
    </property>
   </action>
  </widget>

@@ -58,6 +58,11 @@ private slots:
 	
 	void on_actionOuvrir_BddDir_triggered();
 	
+    void on_actionExportProduits_triggered();
+    void on_actionServices_triggered();
+    void on_actionClientsEx_triggered();
+    void on_actionFournisseurs_triggered();
+
 	public slots:
 	void RefreshLists();
 };
