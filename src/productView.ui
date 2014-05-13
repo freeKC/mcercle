@@ -204,6 +204,9 @@ p, li { white-space: pre-wrap; }
                <height>16777215</height>
               </size>
              </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
@@ -373,8 +376,8 @@ p, li { white-space: pre-wrap; }
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>240</width>
-                  <height>397</height>
+                  <width>242</width>
+                  <height>401</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_5">

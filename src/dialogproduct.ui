@@ -254,6 +254,9 @@
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="1" column="2">
@@ -272,6 +275,9 @@
          </property>
          <property name="maxLength">
           <number>64</number>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -325,6 +331,9 @@
          <property name="maxLength">
           <number>256</number>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="1" column="5">
@@ -368,6 +377,9 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

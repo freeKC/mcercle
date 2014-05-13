@@ -93,6 +93,9 @@ général :</string>
             <property name="maxLength">
              <number>255</number>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
          </layout>

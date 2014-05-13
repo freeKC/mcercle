@@ -166,6 +166,9 @@
          <property name="maxLength">
           <number>64</number>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
@@ -180,12 +183,18 @@
          <property name="maxLength">
           <number>24</number>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="4" column="1">
         <widget class="QLineEdit" name="lineEdit_Email">
          <property name="maxLength">
           <number>128</number>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -217,6 +226,9 @@ p, li { white-space: pre-wrap; }
         <widget class="QLineEdit" name="lineEdit_FirstName">
          <property name="maxLength">
           <number>64</number>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -270,6 +282,9 @@ Naissance :</string>
          <property name="maxLength">
           <number>64</number>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="5" column="3">
@@ -301,12 +316,18 @@ Naissance :</string>
          <property name="maxLength">
           <number>24</number>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="4" column="4">
         <widget class="QLineEdit" name="lineEdit_Profession">
          <property name="maxLength">
           <number>128</number>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -318,12 +339,18 @@ Naissance :</string>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="1" column="1">
         <widget class="QLineEdit" name="lineEdit_compagny">
          <property name="maxLength">
           <number>128</number>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -345,6 +372,9 @@ Naissance :</string>
         <widget class="QLineEdit" name="lineEdit_country">
          <property name="maxLength">
           <number>64</number>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -368,6 +398,9 @@ Naissance :</string>
        <property name="maxLength">
         <number>128</number>
        </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -375,12 +408,18 @@ Naissance :</string>
        <property name="maxLength">
         <number>128</number>
        </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_Add3">
        <property name="maxLength">
         <number>128</number>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -395,6 +434,9 @@ Naissance :</string>
       <widget class="QLineEdit" name="lineEdit_Comments">
        <property name="maxLength">
         <number>256</number>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

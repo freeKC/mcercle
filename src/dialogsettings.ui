@@ -29,7 +29,7 @@
      <item>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>4</number>
+        <number>0</number>
        </property>
        <property name="iconSize">
         <size>
@@ -133,6 +133,9 @@ p, li { white-space: pre-wrap; }
                <property name="maxLength">
                 <number>24</number>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="0" column="2">
@@ -146,6 +149,9 @@ p, li { white-space: pre-wrap; }
               <widget class="QLineEdit" name="lineEdit_sName">
                <property name="maxLength">
                 <number>64</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -168,10 +174,17 @@ p, li { white-space: pre-wrap; }
                <property name="maxLength">
                 <number>64</number>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_sCapital"/>
+              <widget class="QLineEdit" name="lineEdit_sCapital">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
              <item row="3" column="0">
               <widget class="QLabel" name="label_9">
@@ -199,6 +212,9 @@ p, li { white-space: pre-wrap; }
                <property name="maxLength">
                 <number>128</number>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="5" column="0">
@@ -213,6 +229,9 @@ p, li { white-space: pre-wrap; }
                <property name="maxLength">
                 <number>256</number>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="5" column="1">
@@ -220,12 +239,18 @@ p, li { white-space: pre-wrap; }
                <property name="maxLength">
                 <number>64</number>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="5" column="3">
               <widget class="QLineEdit" name="lineEdit_sZipCode">
                <property name="maxLength">
                 <number>10</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -262,10 +287,17 @@ p, li { white-space: pre-wrap; }
                <property name="maxLength">
                 <number>24</number>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_numTVA"/>
+              <widget class="QLineEdit" name="lineEdit_numTVA">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_28">
@@ -288,6 +320,9 @@ p, li { white-space: pre-wrap; }
              <property name="maxLength">
               <number>128</number>
              </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
@@ -295,12 +330,18 @@ p, li { white-space: pre-wrap; }
              <property name="maxLength">
               <number>128</number>
              </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="lineEdit_sAdd3">
              <property name="maxLength">
               <number>128</number>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -343,6 +384,9 @@ p, li { white-space: pre-wrap; }
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="1" column="0">
@@ -360,6 +404,9 @@ p, li { white-space: pre-wrap; }
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="1" column="1">
@@ -369,6 +416,9 @@ p, li { white-space: pre-wrap; }
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -387,6 +437,9 @@ p, li { white-space: pre-wrap; }
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="4" column="0">
@@ -400,6 +453,9 @@ p, li { white-space: pre-wrap; }
               <widget class="QLineEdit" name="lineEdit_Address">
                <property name="maxLength">
                 <number>128</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -523,6 +579,9 @@ p, li { white-space: pre-wrap; }
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item>
@@ -588,7 +647,11 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_hostName"/>
+              <widget class="QLineEdit" name="lineEdit_hostName">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_2">
@@ -598,10 +661,18 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_port"/>
+              <widget class="QLineEdit" name="lineEdit_port">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
              <item row="3" column="1">
-              <widget class="QLineEdit" name="lineEdit_databaseName"/>
+              <widget class="QLineEdit" name="lineEdit_databaseName">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
              <item row="3" column="0">
               <widget class="QLabel" name="label_3">
@@ -618,7 +689,11 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="lineEdit_login"/>
+              <widget class="QLineEdit" name="lineEdit_login">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
              <item row="5" column="0">
               <widget class="QLabel" name="label_5">
@@ -631,6 +706,9 @@ p, li { white-space: pre-wrap; }
               <widget class="QLineEdit" name="lineEdit_password">
                <property name="echoMode">
                 <enum>QLineEdit::Password</enum>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -780,12 +858,18 @@ p, li { white-space: pre-wrap; }
              <property name="maxLength">
               <number>64</number>
              </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="lineEdit_print2">
              <property name="maxLength">
               <number>64</number>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
              </property>
             </widget>
            </item>

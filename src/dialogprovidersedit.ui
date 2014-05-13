@@ -38,12 +38,18 @@
           <property name="maxLength">
            <number>24</number>
           </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item row="0" column="1">
          <widget class="QLineEdit" name="lineEdit_name">
           <property name="maxLength">
            <number>64</number>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -66,6 +72,9 @@
           <property name="maxLength">
            <number>24</number>
           </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item row="3" column="0">
@@ -87,12 +96,18 @@
           <property name="maxLength">
            <number>64</number>
           </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item row="3" column="4">
          <widget class="QLineEdit" name="lineEdit_zipCode">
           <property name="maxLength">
            <number>10</number>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -115,7 +130,11 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_contact"/>
+         <widget class="QLineEdit" name="lineEdit_contact">
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item row="1" column="3">
          <widget class="QLabel" name="label_6">
@@ -128,6 +147,9 @@ p, li { white-space: pre-wrap; }
          <widget class="QLineEdit" name="lineEdit_email">
           <property name="maxLength">
            <number>128</number>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -142,6 +164,9 @@ p, li { white-space: pre-wrap; }
          <widget class="QLineEdit" name="lineEdit_country">
           <property name="maxLength">
            <number>64</number>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -159,6 +184,9 @@ p, li { white-space: pre-wrap; }
         <property name="maxLength">
          <number>128</number>
         </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -166,12 +194,18 @@ p, li { white-space: pre-wrap; }
         <property name="maxLength">
          <number>128</number>
         </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="lineEdit_add3">
         <property name="maxLength">
          <number>128</number>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
